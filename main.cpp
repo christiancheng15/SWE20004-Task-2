@@ -29,10 +29,10 @@ int main() {
                 // code to display the largest number of votes candidate
                 break;
             case 'Q':
-                cout << "Exiting program..." << endl;
+                cout << "Goodbye." << endl;
                 break;
             default:
-                cout << "Invalid choice. Please try again." << endl;
+                cout << "Unknown selection, please try again." << endl;
                 break;
         }
 
