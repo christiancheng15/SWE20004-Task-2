@@ -1,4 +1,3 @@
-ID,Name,Age,Suburb,Status
 047923,Mr. John William Smith,27,Brighton 3186,0
 512376,Ms. Sarah Jane Brown,19,St Kilda 3182,0
 721003,Dr. Mark Andrew Lee,35,Malvern 3144,0
