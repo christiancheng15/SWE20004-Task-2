@@ -10,85 +10,90 @@ using namespace std;
 string VotersFile = "voters.txt";
 string CandidatesFile = "candidates.txt";
 
-void CheckInput(char choices) {
-    // Check if the input is a character
-    if (!isalpha(choices)) {
-        cout << "Invalid choice, please try again" << endl;
-        // Clear the error in cin if you type in something that is not a char
-        cin.clear();
-        // Ignore all characters up to the \n
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
-}
-
-
-void CheckFiles() {
-    ifstream voters_in(VotersFile);
-    ifstream candiates_in(CandidatesFile);
-    //if that file doesn't exist
-    if (!voters_in.is_open()) {
-        cout << "Error: Could not open " << VotersFile << endl;
-    }
-    
-    ifstream candidates_in(CandidatesFile);
-    //if that file doesn't exist
-    if (!candidates_in.is_open()) {
-        cout << "Error: Could not open " << CandidatesFile << endl;
-    }
-}
-
-//Fix this code so that it fit the criteria of Task 2
-//Pass in by reference for it work
-void EmptyFile(ifstream& inFile) {
-    // Check if the file is empty
-    if (inFile.peek() == ifstream::traits_type::eof()) {
-        cout << "The List is empty" << endl;
-        inFile.close();
-        return; //exit immediately if the file is empty
-    }
-}
-
 //S choice
 void DisplaySmallestVotes(string& CandidatesFile) {
-    CheckFiles();
+    // Check if the file exists
+    ifstream fileExistsCheck(CandidatesFile);
+    if (!fileExistsCheck) {
+        cout << "File " << CandidatesFile << " does not exist." << endl;
+        return;
+    }
+
     // Open the student file in read mode
     ifstream inFile;
     inFile.open(VotersFile);
 
     // Check if the file is empty
-    EmptyFile(inFile);
+    if (inFile.peek() == ifstream::traits_type::eof()) {
+        cout << "Unable to determine the smallest number - list is empty" << endl;
+        inFile.close();
+        return; //exit immediately if the file is empty
+    }
+    inFile.close();
 }
 
 //L choice
 void DisplayLargestVotes(string& CandidatesFile) {
-    CheckFiles();
+    // Check if the file exists
+    ifstream fileExistsCheck(CandidatesFile);
+    if (!fileExistsCheck) {
+        cout << "File " << CandidatesFile << " does not exist." << endl;
+        return;
+    }
+
     // Open the student file in read mode
     ifstream inFile;
 
-
     // Check if the file is empty
-
+    if (inFile.peek() == ifstream::traits_type::eof()) {
+        cout << "Unable to determine the largest number - list is empty" << endl;
+        inFile.close();
+        return; //exit immediately if the file is empty
+    }
+    inFile.close();
 }
 
 //P choice
 void PrintNumberForCandidate() {
-    CheckFiles();
+    // Check if the file exists
+    ifstream fileExistsCheck(VotersFile);
+    if (!fileExistsCheck) {
+        cout << "File " << VotersFile << " does not exist." << endl;
+        return;
+    }
     
     ofstream outFile;
     //open it in append mode to not overwrite
     outFile.open(VotersFile, fstream::app); 
     
     //Check if it is empty
-
+    if (outFile.tellp() == 0) {
+        cout << "Unable to calculate the mean - no data." << endl;
+        outFile.close();
+        return; // Exit immediately if the file is empty
+    }
+    outFile.close();
 }
 
 //A choice
 void AddNumberOfVotesToCandidates() {
-    CheckFiles();
+    // Check if the file exists
+    ifstream fileExistsCheck(CandidatesFile);
+    if (!fileExistsCheck) {
+        cout << "File " << CandidatesFile << " does not exist." << endl;
+        return;
+    }
+
     ofstream outFile;
     //open it in append mode to not overwrite
     outFile.open(CandidatesFile, fstream::app); 
-
+    //check if file is empty
+    if (outFile.tellp() == 0) {
+        cout << "Unable to calculate the mean - no data." << endl;
+        outFile.close();
+        return; // Exit immediately if the file is empty
+    }
+    outFile.close();
 }
 
 void menu() {
@@ -123,8 +128,7 @@ void menu() {
                 cout << "Exiting the program";
                 break;
             default:
-                cout << "Invalid choice, please try again" << endl;
-                CheckInput(choices);
+                cout << "Unknown selection, please try again" << endl;
         }
     } 
 }
