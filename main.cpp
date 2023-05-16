@@ -3,9 +3,9 @@
 #include <string> //for string
 #include <limits> //add limits
 #include <cctype> //turn input to lowercase
+#include <sstream> //for modifying specific type in a file
 
 using namespace std;
-
 //Declare the text file as global variables
 string VotersFile = "voters.txt";
 string CandidatesFile = "candidates.txt";
@@ -21,7 +21,7 @@ void DisplaySmallestVotes(string& CandidatesFile) {
 
     // Open the student file in read mode
     ifstream inFile;
-    inFile.open(VotersFile);
+    inFile.open(CandidatesFile);
 
     // Check if the file is empty
     if (inFile.peek() == ifstream::traits_type::eof()) {
@@ -43,10 +43,11 @@ void DisplayLargestVotes(string& CandidatesFile) {
 
     // Open the student file in read mode
     ifstream inFile;
+    inFile.open(CandidatesFile);
 
     // Check if the file is empty
     if (inFile.peek() == ifstream::traits_type::eof()) {
-        cout << "Unable to determine the largest number - list is empty" << endl;
+        cout << "Unable to determine the smallest number - list is empty" << endl;
         inFile.close();
         return; //exit immediately if the file is empty
     }
@@ -56,45 +57,49 @@ void DisplayLargestVotes(string& CandidatesFile) {
 //P choice
 void PrintNumberForCandidate() {
     // Check if the file exists
-    ifstream fileExistsCheck(VotersFile);
-    if (!fileExistsCheck) {
-        cout << "File " << VotersFile << " does not exist." << endl;
-        return;
-    }
-    
-    ofstream outFile;
-    //open it in append mode to not overwrite
-    outFile.open(VotersFile, fstream::app); 
-    
-    //Check if it is empty
-    if (outFile.tellp() == 0) {
-        cout << "Unable to calculate the mean - no data." << endl;
-        outFile.close();
-        return; // Exit immediately if the file is empty
-    }
-    outFile.close();
-}
-
-//A choice
-void AddNumberOfVotesToCandidates() {
-    // Check if the file exists
     ifstream fileExistsCheck(CandidatesFile);
     if (!fileExistsCheck) {
         cout << "File " << CandidatesFile << " does not exist." << endl;
         return;
     }
 
-    ofstream outFile;
-    //open it in append mode to not overwrite
-    outFile.open(CandidatesFile, fstream::app); 
-    //check if file is empty
-    if (outFile.tellp() == 0) {
+    ifstream inFile;
+    inFile.open(CandidatesFile);
+
+    // Check if it is empty
+    if (inFile.peek() == ifstream::traits_type::eof()) {
         cout << "Unable to calculate the mean - no data." << endl;
-        outFile.close();
+        inFile.close();
         return; // Exit immediately if the file is empty
     }
-    outFile.close();
+
+    inFile.close();
 }
+
+
+//A choice
+void AddNumberOfVotesToCandidates() {
+     // Check if the file exists
+    ifstream fileExistsCheck(CandidatesFile);
+    if (!fileExistsCheck) {
+        cout << "File " << CandidatesFile << " does not exist." << endl;
+        return;
+    }
+
+    ifstream inFile;
+    inFile.open(CandidatesFile);
+
+    // Check if it is empty
+    if (inFile.peek() == ifstream::traits_type::eof()) {
+        cout << "Unable to calculate the mean - no data." << endl;
+        inFile.close();
+        return; // Exit immediately if the file is empty
+    }
+
+    inFile.close();
+}
+
+
 
 void menu() {
     bool not_finished = true;
@@ -118,7 +123,7 @@ void menu() {
                 AddNumberOfVotesToCandidates();
                 break;
             case 's':
-                DisplaySmallestVotes(VotersFile);
+                DisplaySmallestVotes(CandidatesFile);
                 break;
             case 'l':
                 DisplayLargestVotes(CandidatesFile);
