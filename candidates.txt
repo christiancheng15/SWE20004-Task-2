@@ -1,15 +1,15 @@
-FLP,Mr. John William Smith,42,Fitzroy 3065,0
-LCL,Mrs. Rachel Mary Brown,35,Brighton 3186,0
-LNQ,Mr. David James Green,49,Townsville 4810,0
-GRN,Ms. Emma Rose Jones,27,Brunswick 3056,0
-NAT,Mr. Michael Andrew Taylor,55,Albury 2640,0
-IND LAB,Mr. Andrew Richard Lee,44,St Kilda 3182,0
-ASP,Ms. Sarah Louise King,31,Essendon 3040,0
-UAP,Mr. William Henry Brown,38,Richmond 3121,0
-DEM,Ms. Elizabeth Jane Davis,50,Carlton 3053,0
-VFU,Mr. Matthew John Wilson,46,Shepparton 3630,0
-CP,Mrs. Mary Ann Lee,56,Bendigo 3550,0
-LP,Mr. Christopher Paul Martin,43,Malvern 3144,0
-FSU,Ms. Rachel Louise Clark,29,Geelong 3220,0
-CLP,Mr. Jason Peter Brown,40,Alice Springs 0870,0
-IND,Ms. Katherine Anne Smith,33,Prahran 3181,0
+FLP,Mr. John William Smith,17-07-1979,Fitzroy 3065,0
+LCL,Mrs. Rachel Mary Brown,20-03-1986,Brighton 3186,0
+LNQ,Mr. David James Green,25-08-1974,Townsville 4810,0
+GRN,Ms. Emma Rose Jones,20-05-1996,Brunswick 3056,0
+NAT,Mr. Michael Andrew Taylor,20-09-1968,Albury 2640,0
+IND,Mr. Andrew Richard Lee,07-02-1977,St Kilda 3182,0
+ASP,Ms. Sarah Louise King,29-01-1992,Essendon 3040,0
+UAP,Mr. William Henry Brown,25-10-1985,Richmond 3121,0
+DEM,Ms. Elizabeth Jane Davis,16-06-1971,Carlton 3053,0
+VFU,Mr. Matthew John Wilson,18-07-1975,Shepparton 3630,0
+CP,Mrs. Mary Ann Lee,25-12-1966,Bendigo 3550,0
+LP,Mr. Christopher Paul Martin,07-07-1978,Malvern 3144,0
+FSU,Ms. Rachel Louise Clark,16-01-1994,Geelong 3220,0
+CLP,Mr. Jason Peter Brown,11-03-1983,Alice Springs 0870,0
+IND,Ms. Katherine Anne Smith,18-04-1990,Prahran 3181,1
